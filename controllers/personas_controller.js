@@ -9,7 +9,7 @@ exports.getNuevaPersona=(request, response, next) => {
 
 exports.postNuevaPersona=(request, response, next) => {
    console.log(request.body);
-   const persona = new Persona(request.body.write,'generico@hotmail.com','Ninguno');
+   const persona = new Persona(request.body.nombre,request.body.correo,request.body.rol);
    persona.save();
    //file_system.writeFileSync('Escribe.txt', request.body.write);
    response.redirect('/Escribe');

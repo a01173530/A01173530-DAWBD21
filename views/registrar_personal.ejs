@@ -2,14 +2,20 @@
 
 	<h1>Lab 15</h1>
 	<div class="container">
-		<ul>
-			<li>
-				<a href="/Escribe/Escribe">Registrar Personal</a>
-			</li>
-		</ul>	
+		
+		<a  class="btn btn-primary" href="/Escribe/Escribe">Registrar Personal</a>
+		<br>
 		<br>
 		<form action="Escribe" method="POST">
-		<input type="text" name="write" class="form-control">
+		<label for="Nombre">Nombre completo</label>
+		<br>
+		<input type="text" name="nombre" class="form-control">
+		<label for="Correo">Correo</label>
+		<br>
+		<input type="text" name="correo" class="form-control">
+		<label for="Rol">Rol</label>
+		<br>
+		<input type="text" name="rol" class="form-control">
 		<br>
 		<input type="submit" name="enviar"  class="btn btn-primary" value="Registrar">
 		</form>
