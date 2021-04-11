@@ -1,0 +1,23 @@
+<%- include('includes/header.ejs') %>
+
+	<div class="container">
+		
+		<a  class="btn btn-primary" href="/Escribe/Escribe">Registrar Personal</a>
+		<br>
+		<br>
+		<form action="Escribe" method="POST">
+		<label for="Nombre">Nombre completo</label>
+		<br>
+		<input type="text" name="nombre" class="form-control">
+		<label for="Correo">Correo</label>
+		<br>
+		<input type="text" name="correo" class="form-control">
+		<label for="Rol">Rol</label>
+		<br>
+		<input type="text" name="rol" class="form-control">
+		<br>
+		<input type="submit" name="enviar"  class="btn btn-primary" value="Registrar">
+		</form>
+
+	</div>
+<%- include('includes/footer.ejs') %>
