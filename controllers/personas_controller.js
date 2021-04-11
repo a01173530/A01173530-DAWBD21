@@ -17,6 +17,9 @@ exports.postNuevaPersona=(request, response, next) => {
 }
 
 exports.get=(request, response, next) => {
+	response.setHeader('Set-Cookie', 'persona_cookie=Esto es para segiuir al personal; HttpOnly');
+	console.log(request.cookies.persona_cookie);
+
 	const personas=Persona.fetchAll();
     //response.sendFile(path.join(__dirname, '..', 'views', 'index.html'));
 
