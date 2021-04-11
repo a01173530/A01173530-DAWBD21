@@ -37,7 +37,10 @@ select * from entregan,materiales
 
 set dateformat dmy
 
-select distinct * from entregan where  fecha Between  '01-JAN-2000' AND '31-DEC-2000'
+SELECT DATE_FORMAT(fecha, '%d-%m-%Y') AS
+select * descripcion from entregan,materiales where  fecha Between  '01-JAN-2000' AND '31-DEC-2000';
+
+select distinct * from entregan where  fecha Between  '01-JAN-2000' AND '31-DEC-2000';
 
 select * descripcion from entregan,materiales where  fecha Between  '01-JAN-2000' AND '31-DEC-2000'
 
