@@ -9,12 +9,15 @@ exports.getNuevaPersona=(request, response, next) => {
 
 exports.postNuevaPersona=(request, response, next) => {
    console.log(request.body);
-   const persona = new Persona(request.body.nombre,request.body.correo,request.body.rol);
-   persona.save();
-   request.session.ultima_persona = request.body.nombre;
-   //file_system.writeFileSync('Escribe.txt', request.body.write);
-   response.redirect('/Escribe');
-   
+   const persona = new Persona(request.body.NombreEsp);
+   persona.save()
+      .then(() => {
+        request.session.ultima_persona = request.body.NombreEsp;
+        response.redirect('/Escribe');
+      }).catch( err => {
+           console.log(err);
+           response.redirect('/Escribe/Escribe');    
+      });
 }
 
 exports.get=(request, response, next) => {
@@ -24,7 +27,27 @@ exports.get=(request, response, next) => {
 	Persona.fetchAll()
           .then(([rows, fieldData]) => {
              console.log(rows);
-             
+
+             response.render('index', {
+              personas: rows,
+              ultima_persona: request.session.ultima_persona === undefined ? "No se ha registrado a nadie" : request.session.ultima_persona
+            });
+          })
+          .catch(err => {
+                 console.log(err);
+          });
+
+
+    
+}
+
+exports.getespecie=(request, response, next) => {
+  const EspID = request.params.EspID;
+
+  Persona.fetchOne()
+          .then(([rows, fieldData]) => {
+             console.log(rows);
+
              response.render('index', {
               personas: rows,
               ultima_persona: request.session.ultima_persona === undefined ? "No se ha registrado a nadie" : request.session.ultima_persona

@@ -12,5 +12,7 @@ router.post('/Escribe', personasController.postNuevaPersona);
 
 router.get('/', personasController.get);
 
+router.get('/:EspID', personasController.getespecie);
+
 
 module.exports = router;

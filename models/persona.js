@@ -11,7 +11,10 @@ module.exports = class Persona {
 
     //Este método servirá para guardar de manera persistente el nuevo objeto. 
     save() {
-        personas.push(this);
+
+      return db.execute('INSERT INTO Especie (NombreEsp) VALUES (?)',
+        [this.NombreEsp]
+        );
         
     }
 
@@ -21,6 +24,10 @@ module.exports = class Persona {
           
         //return personas;
         
+    }
+
+    static fetchOne(EspID) {
+        return db.execute('SELECT * FROM Especie WHERE EspID = ?', [EspID]);
     }
 
 }
