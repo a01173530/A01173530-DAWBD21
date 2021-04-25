@@ -7,6 +7,7 @@ const misRutas = require('./routes/Escribe');
 const rutasUsuarios = require('./routes/usuarios');
 
 app.use(bodyParser.urlencoded({extended: false}));
+app.use(bodyParser.json());
 
 app.use(cookieParser());
 

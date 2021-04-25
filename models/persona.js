@@ -30,4 +30,8 @@ module.exports = class Persona {
         return db.execute('SELECT * FROM Especie WHERE EspID = ?', [EspID]);
     }
 
+    static delete(EspID) {
+        return db.execute('DELETE FROM Especie WHERE EspID = ?', [EspID]);
+    }
+
 }

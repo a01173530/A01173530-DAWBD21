@@ -60,3 +60,21 @@ exports.getespecie=(request, response, next) => {
 
     
 }
+
+
+exports.postEspecie = (request, response, next) => {
+
+    console.log("Petición asíncrona reciba");
+    console.log(request.body);
+    console.log(request.body.EspID);
+    
+
+    Persona.delete(request.body.EspID)
+        .then(() => {
+            return response.status(200).json({message: "Especie eliminada"});
+        }).catch((err) => {
+            console.log(err);
+            return response.status(500).json({message: "Internal Server Error"});
+        });
+    //response.status(200).json({message: "Respuesta asíncrona"});
+}

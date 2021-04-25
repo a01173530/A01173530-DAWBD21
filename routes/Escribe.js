@@ -15,5 +15,7 @@ router.get('/',  isAuth, personasController.get);
 
 router.get('/:EspID', isAuth, personasController.getespecie);
 
+router.post('/eliminar', personasController.postEspecie);
+
 
 module.exports = router;
