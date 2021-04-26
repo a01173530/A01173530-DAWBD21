@@ -71,7 +71,14 @@ exports.postEspecie = (request, response, next) => {
 
     Persona.delete(request.body.EspID)
         .then(() => {
-            return response.status(200).json({message: "Especie eliminada"});
+             Persona.fetchAll()
+                .then(([rows, fieldData]) => {
+                    return response.status(200).json({personas: rows});
+                })
+                .catch(err => {
+                    console.log(err)
+                });
+            //return response.status(200).json({message: "Especie eliminada"});
         }).catch((err) => {
             console.log(err);
             return response.status(500).json({message: "Internal Server Error"});
