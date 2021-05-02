@@ -9,7 +9,10 @@ exports.getNuevaPersona=(request, response, next) => {
 
 exports.postNuevaPersona=(request, response, next) => {
    console.log(request.body);
-   const persona = new Persona(request.body.NombreEsp);
+   console.log(request.file);
+   const file_path = request.file.path;
+   
+   const persona = new Persona(request.body.NombreEsp, file_path);
    persona.save()
       .then(() => {
         request.session.ultima_persona = request.body.NombreEsp;
