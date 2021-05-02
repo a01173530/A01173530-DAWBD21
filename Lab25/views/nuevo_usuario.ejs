@@ -1,0 +1,30 @@
+<%- include('includes/header.ejs') %>
+
+	<div class="container">
+		<% if (error !== false) { %>
+		  <div class="alert alert-warning alert-dismissible fade show" role="alert">
+          <strong> <%- error %>
+          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+          </button>
+          </div>  
+          
+        <% } %> 
+		<br>
+		<form action="new" method="POST">
+		<label for="Nombre">Nombre completo</label>
+		<br>
+		<input type="text" name="nombre" class="form-control" required>
+		<br>
+		<label for="correo">Correo electrónico</label>
+		<br>
+		<input type="text" name="correo" class="form-control" required>
+		<br>
+		<label for="contrasena">Contraseña</label>
+        <input type="password" name="contrasena" class="form-control" minlength="8" required >
+        <br>
+		<input type="submit" name="enviar"  class="btn btn-primary" value="Registrar">
+		</form>
+
+	</div>
+<%- include('includes/footer.ejs') %>
