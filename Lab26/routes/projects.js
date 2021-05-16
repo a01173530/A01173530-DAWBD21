@@ -13,7 +13,7 @@ router.get('/:projectId', setProject, authUser, authGetProject, (req, res) => {
 })
 
 router.delete('/:projectId', setProject, authUser, authDeleteProject, (req, res) => {
-  res.send('Deleted Project')
+  res.send('Proyecto eliminado')
 })
 
 function setProject(req, res, next) {
@@ -22,7 +22,7 @@ function setProject(req, res, next) {
   
   if (req.project == null) {
     res.status(404)
-    return res.send('Project not found')
+    return res.send('Proyecto no encontrado')
   }
   next()
 }
@@ -30,7 +30,7 @@ function setProject(req, res, next) {
 function authGetProject(req, res, next) {
   if (!canViewProject(req.user, req.project)) {
     res.status(401)
-    return res.send('Not Allowed')
+    return res.send('No permitido')
   }
 
   next()
@@ -39,7 +39,7 @@ function authGetProject(req, res, next) {
 function authDeleteProject(req, res, next) {
   if (!canDeleteProject(req.user, req.project)) {
     res.status(401)
-    return res.send('Not Allowed')
+    return res.send('No permitido')
   }
 
   next()
